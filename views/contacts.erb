@@ -1,0 +1,24 @@
+<div class="col-md-6">
+  <form action="/contacts" method="post">
+
+    <div class="form-group">
+      <label for="first-name">First Name:</label>
+      <input class="form-control" type="text" name="first-name" id="first-name">
+      <label for="last-name">Last Name:</label>
+      <input class="form-control" type="text" name="last-name" id="last-name">
+      <label for="job">Job Title:</label>
+      <input class="form-control" type="text" name="job" id="job">
+      <label for="company">Company:</label>
+      <input class="form-control" type="text" name="company" id="company">
+    </div>
+    <button type="submit" name="button">Click</button>
+  </form>
+
+</div>
+<div class="col-md-6">
+  <ul>
+    <% @contacts.each() do |one_contact| %>
+    <li><a href="/single_contact/<%= one_contact.id%>"> <%= one_contact.last_name()%>, <%= one_contact.first_name()%></a></li>
+    <% end %>
+  </ul>
+</div>
