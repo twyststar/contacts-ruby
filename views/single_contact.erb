@@ -2,7 +2,7 @@
   <form action="/single_contact" method="post">
     <h3>Add an address to this contact:</h3>
     <div class="form-group">
-      <input id='contact_id' name='contact_id' type='hidden' value='<%= @contacts.id() %>'>
+      <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id() %>'>
       <label for="street">Street:</label>
       <input class="form-control" type="text" name="street" id="street">
       <label for="city">City:</label>
@@ -19,12 +19,12 @@
 
 </div>
 <div class="col-md-6">
-  <h1><%= @contacts.first_name() %></h1>
-  <h1><%= @contacts.last_name() %></h1>
-  <h1><%= @contacts.job_title() %></h1>
-  <h1><%= @contacts.company() %></h1>
+  <h1><%= @contact.first_name() %></h1>
+  <h1><%= @contact.last_name() %></h1>
+  <h1><%= @contact.job_title() %></h1>
+  <h1><%= @contact.company() %></h1>
   <ul>
-    <% @contacts.address.each() do |one_address| %>
+    <% @contact.address.each() do |one_address| %>
     <li><a href="/single_address/<%= one_address.id%>"> <%= one_address.type()%></a></li>
     <% end %>
   </ul>

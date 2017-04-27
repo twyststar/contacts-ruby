@@ -27,7 +27,7 @@ post('/contacts') do
 end
 
 get('/single_contact/:id') do
-  @contacts = Contact.find(params.fetch("id").to_i)
+  @contact = Contact.find(params.fetch("id").to_i)
   erb(:single_contact)
 end
 
@@ -39,8 +39,8 @@ post('/single_contact') do
   @zip = params.fetch('zip')
   @address = Address.new({:type=> @type, :street=>@street, :city=>@city, :state=>@state, :zip=>@zip})
   @address.save()
-  @contacts = Contact.find(params.fetch("contact_id").to_i())
-  @contacts.add_address(@address)
+  @contact = Contact.find(params.fetch("contact_id").to_i())
+  @contact.add_address(@address)
 
   erb(:success)
 end
